@@ -5,18 +5,26 @@ import AVFoundation
 
 final class ViewController: NSViewController {
     @IBOutlet private var textField: NSTextField!
+
     @IBOutlet private var webView: WKWebView!
+
     @IBOutlet private var previewViewContainer: NSView!
     private var previewView = QLPreviewView(frame: .zero, style: .compact)!
+
     @IBOutlet private var dragDropView: DragDropView!
 
-    @IBOutlet private var videoCaptureView: NSView!
+    @IBOutlet private var videoCaptureViewContainer: NSView!
     @IBOutlet private var videoCaptureViewTrailing: NSLayoutConstraint!
     @IBOutlet private var videoCaptureViewBottom: NSLayoutConstraint!
+    @IBOutlet private var videoCaptureView: NSView!
+
     private let session = AVCaptureSession()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.wantsLayer = true
+        view.layer?.backgroundColor = .white
 
         webView.navigationDelegate = self
 
@@ -36,7 +44,15 @@ final class ViewController: NSViewController {
         let panGestureRecognizer = NSPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         videoCaptureView.addGestureRecognizer(panGestureRecognizer)
 
+        videoCaptureViewContainer.wantsLayer = true
+        videoCaptureViewContainer.layer?.masksToBounds = false
+        videoCaptureViewContainer.layer?.shadowColor = .black
+        videoCaptureViewContainer.layer?.shadowOpacity = 0.2
+        videoCaptureViewContainer.layer?.shadowRadius = 6
+        videoCaptureViewContainer.layer?.shadowOffset = CGSize(width: 0, height: -2)
+
         videoCaptureView.wantsLayer = true
+        videoCaptureView.layer?.cornerRadius = 6
 
         if let device = AVCaptureDevice.default(for: .video),
             let input = try? AVCaptureDeviceInput(device: device),
@@ -46,6 +62,7 @@ final class ViewController: NSViewController {
 
         let previewLayer = AVCaptureVideoPreviewLayer()
         previewLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+        previewLayer.videoGravity = .resizeAspectFill
         previewLayer.session = session
         if let layer = videoCaptureView.layer {
             previewLayer.frame = layer.bounds
@@ -66,10 +83,10 @@ final class ViewController: NSViewController {
     private func browseFile(_ sender: NSButton) {
         let openPanel = NSOpenPanel();
 
-        openPanel.showsResizeIndicator    = true;
-        openPanel.showsHiddenFiles        = false;
-        openPanel.canChooseDirectories    = false;
-        openPanel.canCreateDirectories    = false;
+        openPanel.showsResizeIndicator = true;
+        openPanel.showsHiddenFiles = false;
+        openPanel.canChooseDirectories = false;
+        openPanel.canCreateDirectories = false;
         openPanel.allowsMultipleSelection = false;
 
         openPanel.beginSheetModal(for: view.window!) { [weak self] (response) in

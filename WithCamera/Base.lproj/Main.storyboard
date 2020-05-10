@@ -741,11 +741,22 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="efs-f1-z75">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="233"/>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="2pO-tU-cZC">
-                                <rect key="frame" x="60" y="20" width="400" height="300"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KZy-WE-tOC">
+                                <rect key="frame" x="-109" y="20" width="569" height="320"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="2pO-tU-cZC">
+                                        <rect key="frame" x="0.0" y="0.0" width="569" height="320"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2pO-tU-cZC" secondAttribute="height" multiplier="16:9" id="05G-Ud-Nve"/>
+                                            <constraint firstAttribute="height" constant="320" id="fde-eg-ojK"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="fde-eg-ojK"/>
-                                    <constraint firstAttribute="width" constant="400" id="zc8-EP-dyr"/>
+                                    <constraint firstAttribute="bottom" secondItem="2pO-tU-cZC" secondAttribute="bottom" id="2UJ-25-Ddl"/>
+                                    <constraint firstItem="2pO-tU-cZC" firstAttribute="leading" secondItem="KZy-WE-tOC" secondAttribute="leading" id="6jE-xg-XFt"/>
+                                    <constraint firstAttribute="trailing" secondItem="2pO-tU-cZC" secondAttribute="trailing" id="Nyp-Z0-nle"/>
+                                    <constraint firstItem="2pO-tU-cZC" firstAttribute="top" secondItem="KZy-WE-tOC" secondAttribute="top" id="zCF-Cy-k6p"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ojb-jy-5t1" customClass="DragDropView" customModule="WithCamera" customModuleProvider="target">
@@ -757,12 +768,12 @@
                             <constraint firstItem="c3e-u1-O5m" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="8" id="Grg-vt-Gdd"/>
                             <constraint firstItem="Ojb-jy-5t1" firstAttribute="trailing" secondItem="efs-f1-z75" secondAttribute="trailing" id="KN3-u7-aIL"/>
                             <constraint firstItem="Ojb-jy-5t1" firstAttribute="leading" secondItem="efs-f1-z75" secondAttribute="leading" id="MPM-gy-v0D"/>
-                            <constraint firstAttribute="bottom" secondItem="2pO-tU-cZC" secondAttribute="bottom" constant="20" symbolic="YES" id="Oxb-PJ-7aA"/>
                             <constraint firstItem="EGX-BH-AKt" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="OzR-JL-Gfe"/>
                             <constraint firstItem="EGX-BH-AKt" firstAttribute="top" secondItem="aM3-AR-798" secondAttribute="bottom" constant="8" id="Wzd-61-eyy"/>
                             <constraint firstItem="efs-f1-z75" firstAttribute="bottom" secondItem="EGX-BH-AKt" secondAttribute="bottom" id="Z0e-le-QzC"/>
                             <constraint firstItem="efs-f1-z75" firstAttribute="trailing" secondItem="EGX-BH-AKt" secondAttribute="trailing" id="cY8-kK-PBn"/>
                             <constraint firstItem="efs-f1-z75" firstAttribute="top" secondItem="EGX-BH-AKt" secondAttribute="top" id="dUB-k1-cDZ"/>
+                            <constraint firstAttribute="bottom" secondItem="KZy-WE-tOC" secondAttribute="bottom" constant="20" id="dbg-Vy-k0R"/>
                             <constraint firstAttribute="bottom" secondItem="EGX-BH-AKt" secondAttribute="bottom" id="dxV-eW-4xs"/>
                             <constraint firstItem="Ojb-jy-5t1" firstAttribute="bottom" secondItem="efs-f1-z75" secondAttribute="bottom" id="eey-Rw-OsQ"/>
                             <constraint firstItem="aM3-AR-798" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="8" id="fEQ-Ly-P2e"/>
@@ -771,7 +782,7 @@
                             <constraint firstItem="c3e-u1-O5m" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="8" id="nD2-lM-liV"/>
                             <constraint firstAttribute="trailing" secondItem="aM3-AR-798" secondAttribute="trailing" constant="8" id="rzg-IT-Usa"/>
                             <constraint firstItem="Ojb-jy-5t1" firstAttribute="top" secondItem="efs-f1-z75" secondAttribute="top" id="uPD-uL-VT0"/>
-                            <constraint firstAttribute="trailing" secondItem="2pO-tU-cZC" secondAttribute="trailing" constant="20" symbolic="YES" id="yh9-2F-2gm"/>
+                            <constraint firstAttribute="trailing" secondItem="KZy-WE-tOC" secondAttribute="trailing" constant="20" id="wLs-Gt-u8K"/>
                         </constraints>
                     </view>
                     <connections>
@@ -779,8 +790,9 @@
                         <outlet property="previewViewContainer" destination="efs-f1-z75" id="AdT-4P-Z1M"/>
                         <outlet property="textField" destination="c3e-u1-O5m" id="yNm-cP-iLS"/>
                         <outlet property="videoCaptureView" destination="2pO-tU-cZC" id="PbV-qB-8de"/>
-                        <outlet property="videoCaptureViewBottom" destination="Oxb-PJ-7aA" id="sa0-U7-KSf"/>
-                        <outlet property="videoCaptureViewTrailing" destination="yh9-2F-2gm" id="bZt-cQ-rek"/>
+                        <outlet property="videoCaptureViewBottom" destination="dbg-Vy-k0R" id="yaU-c2-NkJ"/>
+                        <outlet property="videoCaptureViewContainer" destination="KZy-WE-tOC" id="2pV-sr-yIg"/>
+                        <outlet property="videoCaptureViewTrailing" destination="wLs-Gt-u8K" id="foo-27-Lxg"/>
                         <outlet property="webView" destination="EGX-BH-AKt" id="ayz-i2-AjS"/>
                     </connections>
                 </viewController>
