@@ -687,7 +687,6 @@
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
@@ -707,11 +706,11 @@
             <objects>
                 <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="WithCamera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="476"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c3e-u1-O5m">
-                                <rect key="frame" x="8" y="241" width="383" height="21"/>
+                                <rect key="frame" x="8" y="447" width="581" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="bbp-fs-rOS">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -722,7 +721,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aM3-AR-798">
-                                <rect key="frame" x="393" y="234" width="85" height="32"/>
+                                <rect key="frame" x="591" y="440" width="85" height="32"/>
                                 <buttonCell key="cell" type="push" title="Open..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mx0-wi-iUw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -732,17 +731,17 @@
                                 </connections>
                             </button>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGX-BH-AKt">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="678" height="439"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="efs-f1-z75">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="678" height="439"/>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KZy-WE-tOC">
-                                <rect key="frame" x="-109" y="20" width="569" height="320"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KZy-WE-tOC" customClass="ResizableView" customModule="WithCamera" customModuleProvider="target">
+                                <rect key="frame" x="89" y="20" width="569" height="320"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="2pO-tU-cZC">
                                         <rect key="frame" x="0.0" y="0.0" width="569" height="320"/>
@@ -760,7 +759,7 @@
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ojb-jy-5t1" customClass="DragDropView" customModule="WithCamera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="678" height="439"/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -790,15 +789,16 @@
                         <outlet property="previewViewContainer" destination="efs-f1-z75" id="AdT-4P-Z1M"/>
                         <outlet property="textField" destination="c3e-u1-O5m" id="yNm-cP-iLS"/>
                         <outlet property="videoCaptureView" destination="2pO-tU-cZC" id="PbV-qB-8de"/>
-                        <outlet property="videoCaptureViewBottom" destination="dbg-Vy-k0R" id="yaU-c2-NkJ"/>
                         <outlet property="videoCaptureViewContainer" destination="KZy-WE-tOC" id="2pV-sr-yIg"/>
-                        <outlet property="videoCaptureViewTrailing" destination="wLs-Gt-u8K" id="foo-27-Lxg"/>
+                        <outlet property="videoCaptureViewContainerBottom" destination="dbg-Vy-k0R" id="yaU-c2-NkJ"/>
+                        <outlet property="videoCaptureViewContainerTrailing" destination="wLs-Gt-u8K" id="foo-27-Lxg"/>
+                        <outlet property="videoCaptureViewHeight" destination="fde-eg-ojK" id="giM-me-lBM"/>
                         <outlet property="webView" destination="EGX-BH-AKt" id="ayz-i2-AjS"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="771"/>
         </scene>
     </scenes>
 </document>
